@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}
+.chip {
+  @apply px-3 py-1 text-sm rounded-full bg-blue-500/20 text-blue-400;
+}
+/* Hide scrollbar but keep scrolling */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+.btn-primary {
+  @apply px-6 py-3 rounded-full bg-blue-500 text-white hover:opacity-90 transition;
+}
+@keyframes gridMove {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.85; }
+}
+
+/* 🔵 DARK MODE GRID */
+.ai-grid-dark {
+  background-image:
+    linear-gradient(rgba(59,130,246,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.12) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  animation:
+    gridMove 25s linear infinite,
+    gridPulse 8s ease-in-out infinite;
+}
+
+/* ⚪ LIGHT MODE GRID */
+.ai-grid-light {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  animation:
+    gridMove 30s linear infinite,
+    gridPulse 10s ease-in-out infinite;
+}
