@@ -1,5 +1,5 @@
 import { FiArrowRight, FiDownload } from "react-icons/fi";
-import profileImage from "../assets/port.png";
+import profileImage from "../../dist/assets/port.png";
 export default function Hero() {
   return (
     <section
