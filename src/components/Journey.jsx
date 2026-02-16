@@ -34,13 +34,16 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="snap-start h-screen flex flex-col justify-center pt-24 px-8 max-w-7xl mx-auto relative">
-
+    <section
+      id="journey"
+      className="snap-start h-screen flex flex-col justify-center pt-24 px-8 max-w-7xl mx-auto relative"
+    >
       <h3 className="text-4xl md:text-5xl font-bold mb-12">
         Engineering Trajectory
       </h3>
 
-      <div className="absolute left-1/2 top-32 bottom-16 w-[2px] bg-blue-500/30 hidden md:block" />
+      {/* Center Line */}
+      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-32 bottom-16 w-[2px] bg-blue-500/30" />
 
       <div className="space-y-16 relative">
         {milestones.map((item, index) => (
@@ -50,49 +53,51 @@ export default function Journey() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className={`relative md:w-[45%] ${
-              index % 2 === 0
-                ? "md:pr-10 md:text-right md:ml-auto"
-                : "md:pl-10"
-            }`}
+            className="relative flex md:block"
           >
+            {/* Dot anchored to center line */}
             <div
-              className={`hidden md:block absolute top-2 ${
-                index % 2 === 0 ? "-left-3" : "-right-3"
-              } w-4 h-4 rounded-full transition-all duration-300 ${
+              className={`hidden md:block absolute left-1/2 -translate-x-1/2 top-2 w-4 h-4 rounded-full z-10 ${
                 item.highlight
                   ? "bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.9)]"
                   : "bg-blue-400/70"
               }`}
             />
 
-            <div className="transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.4)]">
-              <p className="text-blue-400 text-sm mb-2 font-medium tracking-wide">
-                {item.year}
-              </p>
-
-              <h4 className="text-xl font-semibold mb-1 leading-snug">
-                {item.title}
-              </h4>
-
-              {item.institute && (
-                <p className="text-sm opacity-70 mb-1">
-                  {item.institute}
+            <div
+              className={`md:w-[45%] ${
+                index % 2 === 0
+                  ? "md:ml-auto md:pr-10 md:text-right"
+                  : "md:pl-10"
+              }`}
+            >
+              <div className="transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.4)]">
+                <p className="text-blue-400 text-sm mb-2 font-medium tracking-wide">
+                  {item.year}
                 </p>
-              )}
 
-              <p className="text-sm opacity-60 mb-3">
-                {item.period}
-              </p>
+                <h4 className="text-xl font-semibold mb-1 leading-snug">
+                  {item.title}
+                </h4>
 
-              <p className="opacity-75 text-sm leading-relaxed">
-                {item.desc}
-              </p>
+                {item.institute && (
+                  <p className="text-sm opacity-70 mb-1">
+                    {item.institute}
+                  </p>
+                )}
+
+                <p className="text-sm opacity-60 mb-3">
+                  {item.period}
+                </p>
+
+                <p className="opacity-75 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           </motion.div>
         ))}
       </div>
-
     </section>
   );
 }

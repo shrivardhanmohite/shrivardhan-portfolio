@@ -1,5 +1,5 @@
 import { FiArrowRight, FiDownload } from "react-icons/fi";
-
+import profileImage from "../assets/port.png";
 export default function Hero() {
   return (
     <section
@@ -80,7 +80,7 @@ export default function Hero() {
 
           {/* Circular Image */}
           <img
-            src="/images/port.png"
+            src={profileImage}
             alt="Shrivardhan Mohite"
             className="relative z-10 w-80 md:w-96 rounded-full object-cover border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)]"
           />
