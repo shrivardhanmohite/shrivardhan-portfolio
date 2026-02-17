@@ -3,10 +3,6 @@ import { motion } from "framer-motion";
 export default function Journey() {
   const milestones = [
     {
-      title: "Engineering Trajectory",
-      description: "CURRENT"
-    },
-    {
       title: "Advanced LLM Engineering",
       description:
         "Independent Research & Applied AI Systems\n\n2025 – Present\n\nSpecializing in Retrieval-Augmented Generation (RAG), LLM orchestration, FastAPI microservices and production-grade AI architecture."
@@ -31,10 +27,10 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="snap-start min-h-screen flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 max-w-6xl mx-auto py-20"
+      className="snap-start min-h-screen flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 max-w-6xl mx-auto py-24"
     >
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-center md:text-left">
-        Engineering Journey
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-16 text-center md:text-left">
+        Engineering Trajectory
       </h3>
 
       <div className="relative">
@@ -42,7 +38,7 @@ export default function Journey() {
         {/* Vertical Line */}
         <div className="absolute left-4 sm:left-6 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-px bg-blue-500/20" />
 
-        <div className="space-y-12">
+        <div className="space-y-20">
           {milestones.map((item, index) => (
             <motion.div
               key={index}
@@ -60,20 +56,20 @@ export default function Journey() {
               <div
                 className={`absolute left-2 sm:left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full ${
                   index === 0
-                    ? "bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+                    ? "bg-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.9)]"
                     : "bg-gray-400 shadow-[0_0_8px_rgba(156,163,175,0.5)]"
                 }`}
               />
 
-              {/* Card */}
+              {/* Content (No Card Styling) */}
               <div
-                className={`ml-10 sm:ml-14 md:ml-0 md:w-1/2 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl transition-all duration-300 ${
+                className={`ml-12 sm:ml-16 md:ml-0 md:w-1/2 ${
                   index % 2 === 0
-                    ? "md:mr-auto md:pr-12"
-                    : "md:ml-auto md:pl-12"
+                    ? "md:pr-16"
+                    : "md:pl-16"
                 }`}
               >
-                <h4 className="text-lg sm:text-xl font-semibold mb-3 whitespace-pre-line">
+                <h4 className="text-lg sm:text-xl font-semibold mb-4 whitespace-pre-line">
                   {item.title}
                 </h4>
 
