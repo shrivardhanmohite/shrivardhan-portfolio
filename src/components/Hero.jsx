@@ -52,13 +52,19 @@ export default function Hero() {
           <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
 
            <a
-          href={`${import.meta.env.BASE_URL}resume.pdf?v=${Date.now()}`}
-          download
-          className="flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 transition duration-300 font-medium text-white shadow-lg"
-          >
-          Resume
-          <FiDownload />
-          </a>
+  href={`${import.meta.env.BASE_URL}resume.pdf`}
+  download="Shrivardhan_Mohite_Resume.pdf"
+  className="flex justify-center items-center gap-2 px-6 py-3 rounded-xl 
+             bg-blue-600 hover:bg-blue-500 
+             transition-all duration-300 
+             font-medium text-white 
+             shadow-[0_0_25px_rgba(59,130,246,0.35)] 
+             hover:shadow-[0_0_35px_rgba(59,130,246,0.6)]"
+>
+  Resume
+  <FiDownload />
+</a>
+
 
 
 
