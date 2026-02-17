@@ -47,39 +47,33 @@ export default function Projects() {
 
   return (
     <section
-  id="projects"
-  className="snap-start h-screen flex flex-col justify-center pt-24 px-8 max-w-7xl mx-auto"
->
-
-  {/* Header Row */}
-  <div className="flex items-center justify-between mb-6">
-    <h3 className="text-4xl font-bold">
-      Systems in Production
-    </h3>
-
-    <a
-      href="https://github.com/shrivardhanmohite"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm flex items-center gap-1 opacity-70 hover:opacity-100 transition"
+      id="projects"
+      className="snap-start min-h-screen flex flex-col justify-center pt-24 px-6 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto py-20"
     >
-      github.com
-      <FiArrowUpRight size={14} />
-    </a>
-  </div>
+      {/* Header Row */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          Systems in Production
+        </h3>
 
-  <p className="opacity-70 text-lg max-w-2xl mb-10">
-    Real-world AI systems designed with modular architecture and production depth,
-    backend architecture and scalable engineering.
-  </p>
+        <a
+          href="https://github.com/shrivardhanmohite"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm flex items-center gap-1 opacity-70 hover:opacity-100 transition"
+        >
+          github.com
+          <FiArrowUpRight size={14} />
+        </a>
+      </div>
 
-
-      <p className="opacity-70 text-lg max-w-2xl mb-10">
+      <p className="opacity-70 text-sm sm:text-base md:text-lg max-w-2xl mb-10">
         Real-world AI systems designed with modular architecture and production depth,
         backend architecture and scalable engineering.
       </p>
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -89,27 +83,39 @@ export default function Projects() {
             viewport={{ once: true }}
             className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_35px_rgba(59,130,246,0.2)]"
           >
+            {/* Icons */}
             <div className="absolute top-5 right-5 flex gap-3 text-lg opacity-70">
               {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FiGithub />
                 </a>
               )}
               {project.live && (
-                <a href={project.live} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FiExternalLink />
                 </a>
               )}
             </div>
 
+            {/* Title */}
             <h4 className="text-lg font-semibold mb-3">
               {project.name}
             </h4>
 
-            <p className="opacity-70 text-sm mb-5">
+            {/* Description */}
+            <p className="opacity-70 text-sm mb-5 leading-relaxed">
               {project.description}
             </p>
 
+            {/* Tech Stack */}
             <div className="flex flex-wrap gap-2">
               {project.tech.map((techItem, i) => (
                 <span

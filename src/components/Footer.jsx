@@ -17,7 +17,7 @@ export default function Footer() {
       id="footer"
       className="snap-none border-t border-white/5 py-10"
     >
-      <div className="max-w-6xl mx-auto px-8 flex justify-between items-center text-sm">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-center md:text-left">
 
         {/* Left */}
         <div className="opacity-60">
@@ -32,7 +32,7 @@ export default function Footer() {
         {/* Right */}
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-2 opacity-60 hover:opacity-100 transition"
+          className="flex items-center gap-2 opacity-60 hover:opacity-100 transition duration-200"
         >
           Back to Top
           <FiArrowUp />

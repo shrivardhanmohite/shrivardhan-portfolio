@@ -14,23 +14,20 @@ export default function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-   <div
-  id="main-scroll"
-  className={`relative h-screen overflow-y-scroll snap-y snap-proximity scroll-smooth transition-colors duration-500 ${
-    theme === "dark"
-      ? "bg-[#0F1115] text-white"
-      : "bg-[#F4EFEA] text-black"
-  }`}
->
-
-      {/* 🔥 Full Page Grid Background */}
-      <div id="main-scroll"
+    <div
+      id="main-scroll"
+      className={`relative min-h-screen overflow-y-auto md:h-screen md:overflow-y-scroll md:snap-y md:snap-proximity scroll-smooth transition-colors duration-500 overflow-x-hidden ${
+        theme === "dark"
+          ? "bg-[#0F1115] text-white"
+          : "bg-[#F4EFEA] text-black"
+      }`}
+    >
+      <div
         className={`fixed inset-0 pointer-events-none z-0 ${
           theme === "dark" ? "ai-grid-dark" : "ai-grid-light"
         }`}
       />
 
-      {/* Content */}
       <div className="relative z-10">
         <Navbar />
         <Hero />

@@ -40,7 +40,7 @@ export default function TechStack() {
     "bg-white border border-[#E4DED8] shadow-sm hover:shadow-md";
 
   const renderGrid = (items) => (
-    <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-10">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
       {items.map((tech, index) => {
         const Icon = tech.icon;
         return (
@@ -51,8 +51,8 @@ export default function TechStack() {
               theme === "dark" ? darkStyle : lightStyle
             }`}
           >
-            <Icon className="text-xl mb-2 text-blue-400" />
-            <p className="text-xs text-center">
+            <Icon className="text-xl sm:text-2xl mb-2 text-blue-400" />
+            <p className="text-xs sm:text-sm text-center">
               {tech.name}
             </p>
           </motion.div>
@@ -93,18 +93,19 @@ export default function TechStack() {
   ];
 
   return (
-    <motion.section id="stack"
-      className="snap-start min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto"
+    <motion.section
+      id="stack"
+      className="snap-start min-h-screen flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto py-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <h3 className="text-3xl font-bold mb-6">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
         Systems Toolkit
       </h3>
 
-      <p className="opacity-70 text-sm max-w-xl mb-8">
+      <p className="opacity-70 text-sm sm:text-base max-w-xl mb-8">
         Technologies I use to architect and deploy AI-driven systems.
       </p>
 
