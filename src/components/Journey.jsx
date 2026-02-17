@@ -3,24 +3,28 @@ import { motion } from "framer-motion";
 export default function Journey() {
   const milestones = [
     {
-      title: "Foundation in Programming",
-      description:
-        "Built strong fundamentals in C, C++, Java and Data Structures & Algorithms. Developed problem-solving depth and system-level thinking."
+      title: "Engineering Trajectory",
+      description: "CURRENT"
     },
     {
-      title: "Full-Stack Development",
+      title: "Advanced LLM Engineering",
       description:
-        "Engineered production-ready applications using React, Node.js, Express, MongoDB and modular backend architecture."
+        "Independent Research & Applied AI Systems\n\n2025 – Present\n\nSpecializing in Retrieval-Augmented Generation (RAG), LLM orchestration, FastAPI microservices and production-grade AI architecture."
     },
     {
-      title: "AI Systems Engineering",
+      title: "B.TECH (Computer Science & Technology)",
       description:
-        "Designed and deployed AI-powered applications integrating FastAPI microservices, local LLM orchestration, and Retrieval-Augmented Generation (RAG)."
+        "Shivaji University School of Engineering & Technology, Kolhapur\n2023 – Pursuing\n\nStudying DSA, Operating Systems, DBMS and system design while building full-stack and AI-integrated applications."
     },
     {
-      title: "Scalable Architecture Focus",
+      title: "HSC (CBSE)",
       description:
-        "Currently advancing into distributed systems, LLM orchestration pipelines, and AI-native SaaS infrastructure."
+        "Teens World Corporate School, Boisar\n2022 – 2023 • 88.6%\n\nComputer Science as core subject. Strengthened programming fundamentals and analytical thinking."
+    },
+    {
+      title: "SSC (CBSE)",
+      description:
+        "Teens World Corporate School, Boisar\n2020 – 2021 • 94.3%\n\nBuilt strong mathematical reasoning and structured problem-solving foundation."
     }
   ];
 
@@ -53,7 +57,13 @@ export default function Journey() {
               }`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-2 sm:left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+              <div
+                className={`absolute left-2 sm:left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full ${
+                  index === 0
+                    ? "bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+                    : "bg-gray-400 shadow-[0_0_8px_rgba(156,163,175,0.5)]"
+                }`}
+              />
 
               {/* Card */}
               <div
@@ -63,11 +73,11 @@ export default function Journey() {
                     : "md:ml-auto md:pl-12"
                 }`}
               >
-                <h4 className="text-lg sm:text-xl font-semibold mb-3">
+                <h4 className="text-lg sm:text-xl font-semibold mb-3 whitespace-pre-line">
                   {item.title}
                 </h4>
 
-                <p className="text-sm sm:text-base opacity-70 leading-relaxed">
+                <p className="text-sm sm:text-base opacity-70 leading-relaxed whitespace-pre-line">
                   {item.description}
                 </p>
               </div>
