@@ -40,6 +40,7 @@ export default function WorkspaceScene({ sectionProgress, isVisible, interaction
 
   return (
     <Canvas
+      frameloop={isVisible ? "always" : "demand"}
       shadows
       dpr={[1, 1.5]}
       camera={{ fov: 38, near: 0.1, far: 100 }}

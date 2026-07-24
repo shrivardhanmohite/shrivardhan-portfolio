@@ -366,8 +366,8 @@ export default function StardustBackground() {
     <div className="fixed inset-0 pointer-events-none z-0" style={{ background: theme === "dark" ? "#03050A" : "#F4EFEA" }}>
       <style>{`
         @keyframes breathing-glow {
-          0% { filter: opacity(0.95); }
-          100% { filter: opacity(1.05); }
+          0% { opacity: 0.95; }
+          100% { opacity: 1.05; }
         }
       `}</style>
       

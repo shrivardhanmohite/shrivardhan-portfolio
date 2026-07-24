@@ -112,13 +112,7 @@ const glowOpacity = useTransform(
   [0.15, 0.25]
 );
 
-const glowBlur = useTransform(
-  smoothProgress,
-  [0, 0.65],
-  [80, 100]
-);
-
-const glowFilter = useMotionTemplate`blur(${glowBlur}px)`;
+// Removed dynamic blur for performance, using static blur in CSS
 
 /* ------------------------------------------------------- */
 /* Buttons */
@@ -326,9 +320,8 @@ const handleKnowMe = () => {
   style={{
     scale: glowScale,
     opacity: glowOpacity,
-    filter: glowFilter,
   }}
-  className="absolute w-[65%] sm:w-[60%] md:w-[50%] lg:w-[40%] xl:w-[480px] xl:h-[480px] aspect-square rounded-full bg-blue-500/30 blur-3xl max-xl:!opacity-25 max-xl:!transform-none"
+  className="absolute w-[65%] sm:w-[60%] md:w-[50%] lg:w-[40%] xl:w-[480px] xl:h-[480px] aspect-square rounded-full bg-blue-500/30 blur-[90px] max-xl:!opacity-25 max-xl:!transform-none will-change-transform"
 />
 
   {/* Portrait Container */}
@@ -351,22 +344,30 @@ const handleKnowMe = () => {
   >
     {/* Silhouette */}
     <motion.img
-    src={silhouette}
-    alt="Silhouette"
-    style={{ opacity: silhouetteOpacity }}
-    className="absolute inset-0 z-10 w-full h-full rounded-full object-cover select-none pointer-events-none max-xl:!hidden"
-  />
+      src={silhouette}
+      alt="Silhouette"
+      fetchPriority="high"
+      decoding="sync"
+      style={{ opacity: silhouetteOpacity, willChange: "opacity" }}
+      className="absolute inset-0 z-10 w-full h-full rounded-full object-cover select-none pointer-events-none max-xl:!hidden"
+    />
+
+    {/* Static shadow placed behind the portrait, bypassing GPU scale repaints */}
+    <div className="absolute inset-0 z-10 w-full h-full rounded-full shadow-[0_0_50px_rgba(59,130,246,0.25)] pointer-events-none max-xl:!hidden" />
 
     {/* Portrait */}
     <motion.img
-    src={portImg}
-    alt="Shrivardhan Mohite"
-    style={{
-      opacity: portraitOpacity,
-      scale: portraitScale,
-    }}
-    className="absolute inset-0 z-20 w-full h-full rounded-full object-cover border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.25)] max-xl:!opacity-100 max-xl:!transform-none"
-  />
+      src={portImg}
+      alt="Shrivardhan Mohite"
+      fetchPriority="high"
+      decoding="sync"
+      style={{
+        opacity: portraitOpacity,
+        scale: portraitScale,
+        willChange: "transform, opacity",
+      }}
+      className="absolute inset-0 z-20 w-full h-full rounded-full object-cover border border-white/10 max-xl:!opacity-100 max-xl:!transform-none shadow-[0_0_50px_rgba(59,130,246,0.25)] xl:shadow-none"
+    />
   </div>
 </div>
 

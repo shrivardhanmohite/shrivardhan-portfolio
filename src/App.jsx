@@ -4,11 +4,13 @@ import { ThemeContext } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import WorkspaceSection from "./components/workspace/WorkspaceSection";
-import Projects from "./components/Projects";
+import { lazy, Suspense } from "react";
 import TechStack from "./components/TechStack";
-import Credentials from "./components/Credentials";
-import EngineeringMetrics from './components/EngineeringMetrics';
-import Journey from "./components/Journey";
+
+const Projects = lazy(() => import("./components/Projects"));
+const Credentials = lazy(() => import("./components/Credentials"));
+const EngineeringMetrics = lazy(() => import("./components/EngineeringMetrics"));
+const Journey = lazy(() => import("./components/Journey"));
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LandingHero from "./components/LandingHero";
@@ -33,11 +35,13 @@ export default function App() {
         
         <Hero />
         <WorkspaceSection />
-        <Projects />
-        <EngineeringMetrics />
-        <TechStack />
-        <Credentials />
-        <Journey />
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <Projects />
+          <EngineeringMetrics />
+          <TechStack />
+          <Credentials />
+          <Journey />
+        </Suspense>
         <Contact />
         <Footer />
       </div>
