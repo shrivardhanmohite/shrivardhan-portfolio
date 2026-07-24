@@ -1,31 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-
-import {
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiPython,
-  SiFastapi,
-  SiDjango,
-  SiMysql,
-  SiMongodb,
-  SiPhp,
-  SiGoogle,
-  SiGit,
-  SiPostman
-} from "react-icons/si";
-
-import {
-  FaJava,
-  FaCuttlefish,
-  FaProjectDiagram,
-  FaTerminal
-} from "react-icons/fa";
+import { SKILLS } from "../data/portfolioData";
 
 export default function TechStack() {
   const { theme } = useContext(ThemeContext);
@@ -61,36 +37,6 @@ export default function TechStack() {
     </div>
   );
 
-  const development = [
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "TypeScript", icon: SiTypescript },
-    { name: "React", icon: SiReact },
-    { name: "Tailwind", icon: SiTailwindcss },
-    { name: "Node.js", icon: SiNodedotjs },
-    { name: "Express", icon: SiExpress },
-    { name: "Python", icon: SiPython },
-    { name: "FastAPI", icon: SiFastapi },
-    { name: "Django", icon: SiDjango },
-    { name: "SQL", icon: SiMysql },
-    { name: "MongoDB", icon: SiMongodb },
-    { name: "Java", icon: FaJava },
-    { name: "C/C++", icon: FaCuttlefish },
-    { name: "PHP", icon: SiPhp }
-  ];
-
-  const llm = [
-    { name: "Ollama", icon: FaTerminal },
-    { name: "OpenAI", icon: FaProjectDiagram },
-    { name: "Gemini", icon: SiGoogle },
-    { name: "RAG", icon: FaProjectDiagram }
-  ];
-
-  const tools = [
-    { name: "Git", icon: SiGit },
-    { name: "Postman", icon: SiPostman },
-    { name: "MongoDB Atlas", icon: SiMongodb },
-    { name: "DOSBox", icon: FaTerminal }
-  ];
 
   return (
     <motion.section
@@ -112,17 +58,17 @@ export default function TechStack() {
       <h4 className="text-sm font-semibold mb-6 opacity-80">
         Development
       </h4>
-      {renderGrid(development)}
+      {renderGrid(SKILLS.development)}
 
       <h4 className="text-sm font-semibold mb-6 opacity-80">
         LLM & AI
       </h4>
-      {renderGrid(llm)}
+      {renderGrid(SKILLS.llm)}
 
       <h4 className="text-sm font-semibold mb-6 opacity-80">
         Tools
       </h4>
-      {renderGrid(tools)}
+      {renderGrid(SKILLS.tools)}
     </motion.section>
   );
 }

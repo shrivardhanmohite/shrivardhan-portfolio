@@ -1,49 +1,8 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
+import { PROJECTS } from "../data/portfolioData";
 
 export default function Projects() {
-  const projects = [
-    {
-      name: "Revizo",
-      description:
-        "AI-powered study management platform integrating FastAPI microservices, PDF processing, and local LLM orchestration via Ollama.",
-      tech: ["FastAPI", "Node.js", "MongoDB", "Ollama", "RAG"],
-      github: "https://github.com/shrivardhanmohite/Revizo",
-      live: null
-    },
-    {
-      name: "CarbonCalc",
-      description:
-        "Carbon footprint calculator integrated with Gemini API to generate personalized sustainability insights.",
-      tech: ["React", "Node.js", "Gemini API"],
-      github: "https://github.com/shrivardhanmohite/CarbonCalc",
-      live: "https://carboncalc-qjui.onrender.com/home"
-    },
-    {
-      name: "Public Complaint Platform",
-      description:
-        "Role-based civic issue management system with admin dashboard and real-time complaint tracking.",
-      tech: ["Node.js", "Express", "MongoDB", "EJS"],
-      github: "https://github.com/shrivardhanmohite/public-complaining-platform",
-      live: null
-    },
-    {
-      name: "MapMyCampus",
-      description:
-        "Smart campus navigation system using Google Maps API and graph-based shortest path algorithms.",
-      tech: ["JavaScript", "Maps API", "Algorithms"],
-      github: "https://github.com/shrivardhanmohite/mapmycampus",
-      live: null
-    },
-    {
-      name: "FarmConnect",
-      description:
-        "AI-powered farmer-buyer marketplace integrating crop advisory and government scheme alerts.",
-      tech: ["MERN Stack", "AI Integration"],
-      github: "https://github.com/shrivardhanmohite/farmConnect",
-      live: "https://farmconnect-b3dv.onrender.com"
-    }
-  ];
 
   return (
     <section
@@ -74,9 +33,9 @@ export default function Projects() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-        {projects.map((project, index) => (
+        {PROJECTS.map((project, index) => (
           <motion.div
-            key={index}
+          key={project.id || index}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -105,10 +64,15 @@ export default function Projects() {
               )}
             </div>
 
-            {/* Title */}
-            <h4 className="text-lg font-semibold mb-3">
+            {/* Title + Category */}
+            <h4 className="text-lg font-semibold mb-1">
               {project.name}
             </h4>
+            {project.category && (
+              <p className="text-xs font-mono text-blue-400/70 mb-3 uppercase tracking-widest">
+                {project.category}
+              </p>
+            )}
 
             {/* Description */}
             <p className="opacity-70 text-sm mb-5 leading-relaxed">
@@ -126,6 +90,14 @@ export default function Projects() {
                 </span>
               ))}
             </div>
+
+            {/* Status Badge */}
+            {project.status && (
+              <div className="mt-4 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                {project.status}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>

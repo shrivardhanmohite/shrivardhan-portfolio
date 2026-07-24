@@ -3,12 +3,16 @@ import { ThemeContext } from "./context/ThemeContext";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import AIPlayground from "./components/AIPlayground";
+import WorkspaceSection from "./components/workspace/WorkspaceSection";
 import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
+import Credentials from "./components/Credentials";
+import EngineeringMetrics from './components/EngineeringMetrics';
 import Journey from "./components/Journey";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import LandingHero from "./components/LandingHero";
+import StardustBackground from "./components/background/StardustBackground";
 
 export default function App() {
   const { theme } = useContext(ThemeContext);
@@ -16,24 +20,23 @@ export default function App() {
   return (
     <div
       id="main-scroll"
-      className={`relative min-h-screen overflow-y-auto md:h-screen md:overflow-y-scroll md:snap-y md:snap-proximity scroll-smooth transition-colors duration-500 overflow-x-hidden ${
+      className={`relative min-h-screen overflow-y-auto md:h-screen md:overflow-y-scroll md:snap-y md:snap-proximity lg:snap-mandatory scroll-smooth transition-colors duration-500 overflow-x-hidden hide-scrollbar ${
         theme === "dark"
-          ? "bg-[#0F1115] text-white"
+          ? "bg-[#03050A] text-white"
           : "bg-[#F4EFEA] text-black"
       }`}
     >
-      <div
-        className={`fixed inset-0 pointer-events-none z-0 ${
-          theme === "dark" ? "ai-grid-dark" : "ai-grid-light"
-        }`}
-      />
+      <StardustBackground />
 
       <div className="relative z-10">
         <Navbar />
+        
         <Hero />
-        <AIPlayground />
+        <WorkspaceSection />
         <Projects />
+        <EngineeringMetrics />
         <TechStack />
+        <Credentials />
         <Journey />
         <Contact />
         <Footer />

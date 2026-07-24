@@ -1,28 +1,7 @@
 import { motion } from "framer-motion";
+import { JOURNEY } from "../data/portfolioData";
 
 export default function Journey() {
-  const milestones = [
-    {
-      title: "Advanced LLM Engineering",
-      description:
-        "Independent Research & Applied AI Systems\n\n2025 – Present\n\nSpecializing in Retrieval-Augmented Generation (RAG), LLM orchestration, FastAPI microservices and production-grade AI architecture."
-    },
-    {
-      title: "B.TECH (Computer Science & Technology)",
-      description:
-        "Shivaji University School of Engineering & Technology, Kolhapur\n2023 – Pursuing\n\nStudying DSA, Operating Systems, DBMS and system design while building full-stack and AI-integrated applications."
-    },
-    {
-      title: "HSC (CBSE)",
-      description:
-        "Teens World Corporate School, Boisar\n2022 – 2023 • 88.6%\n\nComputer Science as core subject. Strengthened programming fundamentals and analytical thinking."
-    },
-    {
-      title: "SSC (CBSE)",
-      description:
-        "Teens World Corporate School, Boisar\n2020 – 2021 • 94.3%\n\nBuilt strong mathematical reasoning and structured problem-solving foundation."
-    }
-  ];
 
   return (
     <section
@@ -39,7 +18,7 @@ export default function Journey() {
         <div className="absolute left-4 sm:left-6 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-px bg-blue-500/20" />
 
         <div className="space-y-20">
-          {milestones.map((item, index) => (
+          {JOURNEY.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
